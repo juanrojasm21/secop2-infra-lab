@@ -1,0 +1,31 @@
+# ─── Credenciales — nunca deben subirse al repo ───────────────────────────
+.env
+.env.*
+*.pem
+*.key
+
+# ─── Archivos de estado de Terraform ─────────────────────────────────────
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+
+# ─── Plan de Terraform ───────────────────────────────────────────────────
+*.tfplan
+
+# ─── Variables con valores reales ────────────────────────────────────────
+# Solo sube el example.tfvars como referencia sin valores reales
+dev.tfvars
+prod.tfvars
+
+# ─── Directorio de Terraform ─────────────────────────────────────────────
+.terraform/
+.terraform.lock.hcl
+
+# ─── Zip de Lambda generado automáticamente ──────────────────────────────
+modules/lambda/lambda_placeholder.zip
+
+# ─── Sistema operativo ───────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+terraform.tfvars
