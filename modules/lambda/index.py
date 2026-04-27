@@ -73,7 +73,7 @@ def handler(event, context):
             body = event
     except json.JSONDecodeError as e:
         logger.error("Body inválido — no es JSON válido", extra={"error": str(e)})
-        return _response(400, {"error": "El body de la solicitud no es JSON válido"})
+        return _response(400, {"error": "El cuerpo de la solicitud no es JSON válido"})
 
     # ── Paso 2: Validar campos obligatorios ──────────────────────────────
     # Un proceso de contratación en SECOP II debe tener al minimum:
