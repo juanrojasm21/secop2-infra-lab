@@ -57,7 +57,7 @@ def handler(event, context):
                 "proceso_id": proceso_id
             })
         except Exception as e:
-            logger.error("Error consultando S3", extra={"error": str(e)})
+            logger.error("Error consultando bucket S3", extra={"error": str(e)})
             raise
             
     # ── Paso 1: Parsear el cuerpo del evento ─────────────────────────────
