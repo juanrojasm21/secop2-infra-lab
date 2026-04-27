@@ -154,7 +154,7 @@ def handler(event, context):
 
     # ── Paso 6: Respuesta exitosa ─────────────────────────────────────────
     return _response(201, {
-        "mensaje": "Proceso de contratación recibido correctamente — v3",
+        "mensaje": "Proceso de contratación recibido correctamente — v4",
         "proceso_id": proceso_id,
         "estado":     "RECIBIDO",
         "s3_key":     s3_key
