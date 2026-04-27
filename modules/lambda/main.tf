@@ -28,6 +28,7 @@ resource "aws_lambda_function" "integrations" {
   # Tiempo máximo de ejecución en segundos
   timeout     = 30
   memory_size = 128  # MB mínimos — suficiente para el laboratorio
+  publish          = true
 
   # Variables de entorno que la función puede leer
   environment {
@@ -170,6 +171,16 @@ resource "aws_iam_role_policy" "lambda_sqs" {
   })
 }
 
+resource "aws_lambda_alias" "live" {
+  name             = "live"
+  function_name    = aws_lambda_function.integrations.function_name
+  function_version = aws_lambda_function.integrations.version
+
+  lifecycle {
+    ignore_changes = [routing_config]
+  }
+}
+
 # ── Outputs útiles para el módulo de API Gateway ──────────────────────────
 # El módulo de API Gateway va a necesitar saber el ARN y nombre
 # de la Lambda para poder invocarla. Los outputs los exponen.
@@ -191,4 +202,9 @@ output "sqs_queue_url" {
 output "sqs_dlq_url" {
   description = "URL de la Dead Letter Queue"
   value       = aws_sqs_queue.contratos_dlq.url
+}
+
+output "lambda_alias_invoke_arn" {
+  description = "ARN del alias live — usado por API Gateway"
+  value       = aws_lambda_alias.live.invoke_arn
 }
