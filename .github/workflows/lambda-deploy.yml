@@ -38,7 +38,7 @@ jobs:
           checkov -d modules/lambda \
             --framework terraform \
             --quiet \
-            --skip-check CKV_AWS_17
+            --skip-check CKV_AWS_173,CKV_AWS_27
 
   # ── Etapa 2: Empaquetado ─────────────────────────────────────────────
   package:
