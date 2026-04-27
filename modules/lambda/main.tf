@@ -174,10 +174,10 @@ resource "aws_iam_role_policy" "lambda_sqs" {
 resource "aws_lambda_alias" "live" {
   name             = "live"
   function_name    = aws_lambda_function.integrations.function_name
-  function_version = aws_lambda_function.integrations.version
+  function_version = "$LATEST"
 
   lifecycle {
-    ignore_changes = [routing_config]
+    ignore_changes = [routing_config, function_version]  # ← agrega function_version
   }
 }
 
