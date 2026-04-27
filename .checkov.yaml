@@ -1,0 +1,17 @@
+skip-check:
+  # ── KMS / Cifrado ────────────────────────────────────────────────────
+  - CKV_AWS_173  # Lambda: variables de entorno sin KMS
+  - CKV_AWS_27   # SQS: cola sin cifrado KMS
+  - CKV_AWS_7    # Lambda: sin cifrado KMS en general
+  - CKV_AWS_76   # SQS: sin cifrado en tránsito
+
+  # ── VPC / Red ────────────────────────────────────────────────────────
+  - CKV_AWS_117  # Lambda: fuera de VPC
+  - CKV_AWS_116  # Lambda: sin Dead Letter Queue (la tenemos en SQS)
+
+  # ── Logging / Trazabilidad ───────────────────────────────────────────
+  - CKV_AWS_50   # Lambda: sin X-Ray tracing
+  - CKV_AWS_272  # Lambda: sin Code Signing
+
+  # ── IAM ──────────────────────────────────────────────────────────────
+  - CKV_AWS_274  # IAM: política con wildcards en recursos
