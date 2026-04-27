@@ -8,7 +8,7 @@
 resource "aws_eks_cluster" "main" {
   name     = "${var.project}-${var.env}-cluster"
   role_arn = var.eks_cluster_role_arn
-  version  = "1.29"  # Versión estable de Kubernetes en AWS
+  version  = "1.32"  # Versión estable de Kubernetes en AWS
 
   vpc_config {
     subnet_ids              = var.private_subnet_ids
