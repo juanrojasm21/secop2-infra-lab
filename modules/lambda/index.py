@@ -39,7 +39,7 @@ def handler(event, context):
         proceso_id = event.get("pathParameters", {}).get("proceso_id")
         
         if not proceso_id:
-            return _response(400, {"error": "proceso_id es requerido en la URL"})
+            return _response(400, {"error": "El parámetro de id del proceso es requerido por la URL"})
         
         # Buscar el documento en S3
         bucket = os.environ.get("S3_BUCKET", "")
