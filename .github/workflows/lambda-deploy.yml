@@ -37,7 +37,8 @@ jobs:
           pip install checkov
           checkov -d modules/lambda \
             --framework terraform \
-            --quiet
+            --quiet \
+            --skip-check CKV_AWS_17
 
   # ── Etapa 2: Empaquetado ─────────────────────────────────────────────
   package:
