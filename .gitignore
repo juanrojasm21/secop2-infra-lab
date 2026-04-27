@@ -29,3 +29,11 @@ modules/lambda/lambda_placeholder.zip
 Thumbs.db
 
 terraform.tfvars
+
+
+# ─── Entorno virtual Python ───────────────────────────────────────────────
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
